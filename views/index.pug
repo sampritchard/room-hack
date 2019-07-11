@@ -1,1 +1,36 @@
-p Hack Day
+doctype html
+head
+  meta(charset='UTF-8')
+  title
+    | Node delivered HTML
+div
+  h1 Send JSON to Node
+  button(onclick='sendJSON()') Send
+  p#result
+script.
+  var myData = [
+  {
+  "name": "Bill",
+  "age": 20
+  },
+  {
+  "name": "Lisa",
+  "age": 40
+  },
+  {
+  "name": "Ant",
+  "age": 80
+  }
+  ]
+  function sendJSON(){
+  var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+  xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+  document.getElementById("result").innerHTML =
+  this.responseText;
+  }
+  };
+  xmlhttp.open("POST", "http://localhost:3000");
+  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xmlhttp.send(JSON.stringify(myData));
+  }

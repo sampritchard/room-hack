@@ -16,12 +16,11 @@ exports.up = function(db, callback) {
       type: 'int',
       primaryKey: true
     },
-    organizer_id: {
-      type: 'int'
+    full_name: {
+      type: 'string'
     },
-    organizer_name: {
-      type: 'string',
-      length: 50,
+    organizer: {
+      type: 'boolean'
     },
     room_id: {
       type: 'int',
@@ -37,15 +36,9 @@ exports.up = function(db, callback) {
     meeting_end_time: {
       type: 'time'
     },
-    meeting_name: {
-      type: 'string'
-    },
     iot_request_time: {
       type: 'time'
     },
-    attendees: {
-      type: 'string'
-    }
   }, function(err) {
     if (err) return callback(err);
     return callback();
