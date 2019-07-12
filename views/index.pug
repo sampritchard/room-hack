@@ -25,9 +25,10 @@ html
                   span &nbsp;points&nbsp;&nbsp; :(
       div.row
         div.col-12
-          h2.text-center Last Room Abandoned
+          h2.text-center Last Room Captured
       div.row
         div.col-4.offset-2.text-center.dark-row-color.m-right-10= lastCancel[0].room_name
+          div= lastCancel[0].organizer_email
         div.col-4.text-center.dark-row-color.m-left-10
           div= lastCancel[0].diffMins
           div Minutes Ago
