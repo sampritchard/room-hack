@@ -15,16 +15,12 @@ let emails = [
     'joanna@paddle.com',
     'johan@paddle.com',
     'james@paddle.com',
-    'nicole@paddle.com',
-    'kevin@paddle.com',
-    'eion@paddle.com',
+    'eoin@paddle.com',
     'francisco@paddle.com',
     'bilquis@paddle.com',
     'sujan@paddle.com',
     'christian@paddle.com',
     'blake@paddle.com',
-    'gerry@paddle.com',
-    'mary@paddle.com',
     'michael@paddle.com',
     'myrto@paddle.com',
     'alexia@paddle.com',
@@ -34,13 +30,14 @@ let emails = [
 ];
 
 let room_names = [
-    'LON-HQ-2-Moneywings (10) [Zoom]',
-    'LON-HQ-2-Rocketship (10) [Zoom]',
-    'LON-HQ-2-All Hands (100) [Zoom]',
-    'LON-HQ-2-Unicorn (10) [Zoom]',
-    'LON-HQ-2-Apple (4) [Zoom]',
-    'LON-HQ-2-T-Rex (3) [Zoom]',
-    'LON-HQ-2-Kino (4) [Zoom]'
+    'Wave Stand Up Area 🌊 (10)',
+    'Moneywings 💸 (10)',
+    'The Island 🏝 (4)',
+    'Bug Stand-up Area 🐛 (10)',
+    'Stand-up Area 🐐 (10)',
+    'All Hands 🙌 (100)',
+    'Rocketship 🚀 (10)',
+    'Unicorn 🦄 (10)'
 ];
 
 let points = [
@@ -52,7 +49,8 @@ var connection = sql.createConnection({
     host     : process.env.RDS_HOSTNAME,
     user     : process.env.RDS_USERNAME,
     password : process.env.RDS_PASSWORD,
-    database : process.env.RDS_DB
+    database : process.env.RDS_DB,
+    charset: "utf8mb4"
 });
 
 const SEED_BASE = 10;
