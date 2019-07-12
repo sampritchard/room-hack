@@ -27,7 +27,13 @@ app.get('/', (req, res) => {
     }
     console.log('connection is looking good')
 
-  connection.query('SELECT email, points FROM email_points GROUP by email', (err, result, fields) => {
+  connection.query('SELECT ep.email, SUM(ep.points) as points, \
+  (select REPLACE(room_name,"?","") from abandoned_meetings sub where sub.id = MAX(am.id)) as room_name \
+  FROM abandoned_meetings am \
+  INNER JOIN email_points ep \
+  ON am.event_id = ep.event_id \
+  GROUP by ep.email \
+  ORDER BY points desc', (err, result, fields) => {
       if (err) console.log(err);
       console.log(result)
       res.render('index', {data: result})
