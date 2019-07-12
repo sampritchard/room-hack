@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 require('dotenv').config();
 
 app.set('view engine', 'pug');
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json('application/json'));
 

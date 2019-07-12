@@ -1,14 +1,18 @@
 html
   head
+    link(rel="stylesheet" type="text/css" href="./style.css")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
     title Capture Flag  
   body
-  h1 Leaderboard
-  table(style='width:100%', border='1')
-    for item in data
-      tr
-        th Name
-        th Count
-      tr
-        td= item.email
-        td= item.points
+    div.content
+      h1 Meeting Room Doom
+      h3 Most Incosiderate Paddlers Since 12/06/2019
+      table(style='width:50%', border='1')
+        for item in data
+          tr
+            th Name
+            th Count
+          tr
+            td= item.email
+            td= item.points
         
