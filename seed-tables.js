@@ -55,7 +55,7 @@ var connection = sql.createConnection({
     database : process.env.RDS_DB
 });
 
-const SEED_BASE = 1;
+const SEED_BASE = 10;
 
 connection.connect(function(err) {
     for (let i = 0; i < SEED_BASE; i++) {
@@ -71,7 +71,6 @@ connection.connect(function(err) {
             connection.query(sqlPoints, [pointsRows], function (err, result) {
                 if (err) throw err;
                 console.log("points records inserted");
-                connection.end();
             });
         });
     }
@@ -82,7 +81,6 @@ function createFakeMeetingArray(id, attendees) {
     let retArr = [
         [id, 'placeholder', 'Summary', pickRandomEmail(), pickRandomEmail(), 'roomId', pickRandomRoom(), theDate, theDate, theDate, 60, attendees]
     ];
-    console.log(retArr);
     return retArr;
 }
 

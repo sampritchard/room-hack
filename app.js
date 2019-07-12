@@ -33,13 +33,23 @@ app.get('/', (req, res) => {
   INNER JOIN email_points ep \
   ON am.event_id = ep.event_id \
   GROUP by ep.email \
-  ORDER BY points desc', (err, result, fields) => {
+  ORDER BY points desc limit 10', (err, result, fields) => {
       if (err) console.log(err);
-      console.log(result)
-      res.render('index', {data: result})
+      connection.query('select meeting_summary, room_name, iot_request_time from abandoned_meetings order by id desc limit 1', (err, newResult, fields) => {
+          if (err) console.log(err);
+          let dt1 = new Date();
+          let dt2 = new Date(newResult[0].iot_request_time);
+          newResult[0].diffMins = diff_minutes(dt1, dt2)
+          res.render('index', {data: result, lastCancel: newResult})
+        })
     })
   })
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
+function diff_minutes(dt2, dt1) {
+  var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+  diff /= 60;
+  return Math.abs(Math.round(diff));
+}

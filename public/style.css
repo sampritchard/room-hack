@@ -21,3 +21,22 @@ h1, h2, h3, h4 {
     font-style: italic;
     font-weight: 900;
 }
+.dark-row-color {
+    background-color: #343a40;
+    color: white;
+    font-weight: 900;
+    font-size: 24px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-height: 5em;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.m-left-10 {
+    margin-left: 10px;
+}
+
+.m-right-10 {
+    margin-right: 10px;
+}

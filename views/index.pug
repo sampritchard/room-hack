@@ -27,9 +27,9 @@ html
         div.col-12
           h2.text-center Last Room Abandoned
       div.row
-        div.col-6.text-center ROOM
-        div.col-6.text-center
-          div XXX
+        div.col-4.offset-2.text-center.dark-row-color.m-right-10= lastCancel[0].room_name
+        div.col-4.text-center.dark-row-color.m-left-10
+          div= lastCancel[0].diffMins
           div Minutes Ago
 
     script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
