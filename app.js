@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
     }
     console.log('connection is looking good')
 
-    connection.query('SELECT organizer_email, room_name, iot_request_time, count(organizer_email) FROM abandoned_meetings GROUP by organizer_email', (err, result, fields) => {
+  connection.query('SELECT email, points FROM email_points GROUP by email', (err, result, fields) => {
       if (err) console.log(err);
       console.log(result)
       res.render('index', {data: result})
