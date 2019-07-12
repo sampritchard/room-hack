@@ -17,7 +17,8 @@ app.get('/', (req, res) => {
     host     : process.env.RDS_HOSTNAME,
     user     : process.env.RDS_USERNAME,
     password : process.env.RDS_PASSWORD,
-    database : process.env.RDS_DB
+    database : process.env.RDS_DB,
+    charset: "utf8mb4"
   });
 
     connection.connect(function(err) {
@@ -35,6 +36,7 @@ app.get('/', (req, res) => {
   GROUP by ep.email \
   ORDER BY points desc limit 10', (err, result, fields) => {
       if (err) console.log(err);
+      console.log(result);
       connection.query('select meeting_summary, room_name, iot_request_time from abandoned_meetings order by id desc limit 1', (err, newResult, fields) => {
           if (err) console.log(err);
           let dt1 = new Date();
